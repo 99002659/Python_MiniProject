@@ -3,8 +3,6 @@
 ![CI](https://github.com/99002659/Python_MiniProject/workflows/CI/badge.svg)
 
 
-TCP Client-Server Threads
-The goal of this project is to build a tcp client and a tcp server
 Requirements
 
     Python > 3.5.x.
@@ -14,7 +12,7 @@ Requirements
     The client should be a command line application and should connect to the server with a TLS connection
     Once started the client should receive the current date from the server every 10 seconds
     The client should listen on the standard input and send a text message to the server every time the return key is pressed, the server should respond to the client with the same string but reversed
-    All the implementation must be covered with automated tests and cloned using Visual Studio
+    All the implementation must be covered with automated tests.
 
 
 
@@ -28,5 +26,3 @@ in order to connect n clients, repeat step 2 n times
 Automated tests
 
 In order to run the automated tests run the script: python tests.py
-
-
