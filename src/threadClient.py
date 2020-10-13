@@ -1,7 +1,6 @@
-import  threading, os, sys 
+import  threading, os
 from socket import create_connection
 from ssl import SSLContext, PROTOCOL_TLS_CLIENT
-
 client = None 
 def connect_server():                                                              #connect to server 
   global client  
@@ -33,13 +32,9 @@ def receive():
     return in_data.decode()       
 def run_client():                                                                      #do the sending on a different thread
   t1 = threading.Thread(target=send)
-  t1.start() 
-                                                                                       #in the main thread do the receiving
+  t1.start()                                                                                        #in the main thread do the receiving
   while True:
     receive() 
 if __name__ == "__main__":
   connect_server()
   run_client()
-  
-  
-
