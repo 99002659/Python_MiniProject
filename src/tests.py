@@ -16,8 +16,7 @@ class TestSum(unittest.TestCase):
         self.assertEqual(True, check,  f'your Python version is = {current_version} while the min requirement is = {min_version} ') 
                
     #[2] Requirement:  The server should listen on port 3443
-    def test_port(self):
-    
+    def test_port(self):  
       port = server.conn_params()
       port = int( port.split()[-1])      
       req_port = 3443      
@@ -44,8 +43,7 @@ class TestSum(unittest.TestCase):
        
       #[6] Requirement: The client should send a text message to the server, the server should respond with the same string but reversed.
       with self.subTest():
-        test_input(self)     
-        
+        test_input(self)           
       #send q to close connection
       clients.send(string_output = 'q')
 
@@ -55,8 +53,7 @@ def test_max_clients(max_clients):
   message = server.connect_clients()    #ask the server if is still possible to connect
   expected_msg = "can't connect, max number of clients reached"
         
-  max_clients.assertEqual(message, expected_msg) 
-  
+  max_clients.assertEqual(message, expected_msg)  
   server.connected_clients = 0              #reset the number of connected clients
 #[4] Requirement: The client should connect to the server with a TLS connection
 def test_tls(tls):
@@ -76,14 +73,11 @@ def test_date(date):
   date.assertEqual(diff, expected_dif)   
 
 # calculate the diff beween two dates
-def cal_date_diff(date_1, date_2):
-  
+def cal_date_diff(date_1, date_2):  
   date_1 = date_1.split()[-2:]
-  date_1 = "{} {}".format(date_1[0], date_1[1]) 
-      
+  date_1 = "{} {}".format(date_1[0], date_1[1])       
   date_2 = date_2.split()[-2:]
-  date_2 = "{} {}".format(date_2[0], date_2[1]) 
-  
+  date_2 = "{} {}".format(date_2[0], date_2[1])   
   date_1 = datetime.strptime(date_1, "%d/%m/%Y %H:%M:%S")
   date_2 = datetime.strptime(date_2, "%d/%m/%Y %H:%M:%S")
 
@@ -97,7 +91,6 @@ def test_input(input):
   expected_list = ['amor', 'avoneg']
 
   clients.send(string_output = input_list)
-
   output_list = []
   prefix = "Reversed input : "
 
@@ -105,7 +98,6 @@ def test_input(input):
   for i in range(len(input_list)):
       out = clients.receive().replace(prefix, "")
       output_list.append(out)
-
   input.assertEqual(output_list, expected_list)
  
 if __name__ == "__main__":
