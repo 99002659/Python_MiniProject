@@ -1,11 +1,10 @@
-import  threading, os, time, sys 
+import  threading, os, sys 
 from socket import create_connection
 from ssl import SSLContext, PROTOCOL_TLS_CLIENT
 
 client = None 
 #connect to server 
 def connect_server():
-
   global client  
   HOSTNAME ='example.org'
   SERVER = "127.0.0.1"
@@ -22,7 +21,6 @@ def connect_server():
 
 #send data to server
 def send(string_output=None):  
-
   while True: 
     if(string_output == None): #input from keyboard
       out_data = input()
@@ -30,21 +28,18 @@ def send(string_output=None):
     else:
       for out_data in string_output: #input from code
         client.sendall(bytes(out_data,'UTF-8'))      
-      break
-    
+      break   
     #if q end connection
     if out_data=='q':
         client.close()
-        os._exit(0) 
-      
+        os._exit(0)      
 #receive data from server
 def receive():
 
     in_data =  client.recv(1024)
     print(in_data.decode())
     return in_data.decode()
-    
-    
+       
 def run_client():
 
   #do the sending on a different thread
@@ -54,10 +49,8 @@ def run_client():
   #in the main thread do the receiving
   while True:
     receive()
-
  
 if __name__ == "__main__":
-
   connect_server()
   run_client()
   
