@@ -1,11 +1,8 @@
-
 import  threading, os, time, sys 
 from socket import create_connection
 from ssl import SSLContext, PROTOCOL_TLS_CLIENT
 
-
 client = None 
-
 #connect to server 
 def connect_server():
 
@@ -18,14 +15,12 @@ def connect_server():
   # PROTOCOL_TLS_CLIENT requires valid cert chain and hostname
   context = SSLContext(PROTOCOL_TLS_CLIENT)
   context.load_verify_locations('certificates/cert.pem')
-  
   tls = create_connection((SERVER, PORT))  
   client =  context.wrap_socket(tls, server_hostname=HOSTNAME)  
 
   print("insert the  input  then press ENTER...")
   print("press q + ENTER so exit")
   print()
-
 
 #send data to server
 def send(string_output=None):  
@@ -37,8 +32,7 @@ def send(string_output=None):
       
     else:
       for out_data in string_output: #input from code
-        client.sendall(bytes(out_data,'UTF-8'))    
-        
+        client.sendall(bytes(out_data,'UTF-8'))           
       break
     
     #if q end connection
