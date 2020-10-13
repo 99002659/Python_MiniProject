@@ -63,7 +63,7 @@ def cal_date_diff(date_1, date_2):
   date_2 = "{} {}".format(date_2[0], date_2[1])   
   date_1 = datetime.strptime(date_1, "%d/%m/%Y %H:%M:%S")
   date_2 = datetime.strptime(date_2, "%d/%m/%Y %H:%M:%S")
- result = str(date_2 - date_1)
+  result = str(date_2 - date_1)
   return result  
   #[6] Requirement: The client should send a text message to the server, the server should respond with the same string but reversed
 def test_input(input):
