@@ -9,8 +9,7 @@ class TestSum(unittest.TestCase):
     def test_version(self):  
         current_version = float(python_version()[:3])        
         min_version = 3.5       
-        check = False
-        
+        check = False      
         if(current_version >= min_version):
             check = True     
         self.assertEqual(True, check,  f'your Python version is = {current_version} while the min requirement is = {min_version} ') 
