@@ -58,7 +58,6 @@ def test_max_clients(max_clients):
   max_clients.assertEqual(message, expected_msg) 
   
   server.connected_clients = 0              #reset the number of connected clients
-
 #[4] Requirement: The client should connect to the server with a TLS connection
 def test_tls(tls):
   tls_version = clients.client.version()
