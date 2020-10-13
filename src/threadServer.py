@@ -14,7 +14,6 @@ class ServerThread():
         
         print("New connection added:", self.clientAddress)
         
-
     def get_current_date(self):
 
         # datetime object containing current date and time
@@ -23,8 +22,7 @@ class ServerThread():
         dt_string = now.strftime("%d/%m/%Y %H:%M:%S")        
         result = "{} {}".format("Date sent From Server :" , dt_string) 
         return result
-        
-            
+             
     # The server should send the current date to each client every 10 seconds  
     def send_date(self):
     
@@ -36,7 +34,6 @@ class ServerThread():
         self.csocket.send(bytes(date_to_send,'UTF-8'))
         time.sleep(self.time_sleep)
   
-
     def reverse_input(self, input):
     
       reversed input =  "{} {}".format("Reversed input :" , input[::-1]) 
@@ -75,7 +72,6 @@ def conn_params():
     print(conn_output)
     return conn_output
 
-
 #accept connection request from clients, start threads
 def connect_clients():
 
@@ -84,9 +80,7 @@ def connect_clients():
     if connected_clients < MAX_CLIENTS:
 
         clientsock, clientAddress = tls.accept()
-
-        newthread = ServerThread(clientAddress, clientsock)
-        
+        newthread = ServerThread(clientAddress, clientsock)      
         t1 = threading.Thread(target = newthread.send_date)
         t2 = threading.Thread(target = newthread.process_input)
         
@@ -104,8 +98,7 @@ def connect_clients():
         conn_output = "can't connect, max number of clients reached"
     
     return conn_output
-        
-    
+            
 #global variables
 LOCALHOST = "127.0.0.1"
 PORT = 3443
@@ -136,8 +129,7 @@ lock = threading.Lock()
 
 if __name__ == "__main__":
 
-    conn_params()
-    
+    conn_params()  
     while True:
         connect_clients()
 
