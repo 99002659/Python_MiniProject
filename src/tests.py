@@ -6,18 +6,15 @@ from datetime import datetime
 
 class TestSum(unittest.TestCase): 
   #[1] Requirement:  python > 3.5.x
-    def test_version(self): 
-  
+    def test_version(self):  
         current_version = float(python_version()[:3])        
         min_version = 3.5       
         check = False
         
         if(current_version >= min_version):
-            check = True
-            
+            check = True     
         self.assertEqual(True, check,  f'your Python version is = {current_version} while the min requirement is = {min_version} ') 
-        
-        
+               
     #[2] Requirement:  The server should listen on port 3443
     def test_port(self):
     
@@ -25,8 +22,7 @@ class TestSum(unittest.TestCase):
       port = int( port.split()[-1])      
       req_port = 3443      
       self.assertEqual(port, req_port,  f'port is = {port} while the required port is = {req_port} ') 
-          
-            
+                      
     def test_send_receive(self):
       #[3] Requirement: The server should accept a maximum of 100 connected clients
       with self.subTest():
@@ -53,7 +49,6 @@ class TestSum(unittest.TestCase):
       #send q to close connection
       clients.send(string_output = 'q')
 
-
  #[3] Requirement: The server should accept a maximum of 100 connected clients
 def test_max_clients(max_clients):
   server.connected_clients = 100            #impose that 100 clients are already connected
@@ -63,7 +58,6 @@ def test_max_clients(max_clients):
   max_clients.assertEqual(message, expected_msg) 
   
   server.connected_clients = 0              #reset the number of connected clients
-
 
 #[4] Requirement: The client should connect to the server with a TLS connection
 def test_tls(tls):
