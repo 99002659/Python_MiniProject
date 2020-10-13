@@ -13,7 +13,7 @@ class TestSum(unittest.TestCase):
     def test_version(self): 
   
         current_version = float(python_version()[:3])        
-        min_version  = 3.5       
+        min_version = 3.5       
         check = False
         
         if (current_version >= min_version):
@@ -26,7 +26,7 @@ class TestSum(unittest.TestCase):
     def test_port(self):
     
       port = server.conn_params()
-      port = int( port.split()[-1] )      
+      port = int( port.split()[-1])      
       req_port = 3443      
       self.assertEqual(port, req_port,  f'port is = {port} while the required port is = {req_port} ') 
           
@@ -39,7 +39,7 @@ class TestSum(unittest.TestCase):
     
       #put the server ready to receive connections from clients
       t1 = threading.Thread(target = server.connect_clients)
-      t1.start()      
+      t1.start()
       time.sleep(0.2)
       
       #client send a connection request to server
@@ -76,7 +76,7 @@ def test_max_clients(max_clients):
 def test_tls(tls):
   tls_version = clients.client.version()
   expected_tls= "TLSv1.3"        
-  tls.assertEqual(tls_version, expected_tls)  
+  tls.assertEqual(tls_version,expected_tls)  
  
  
  #[5] Requirement: The client should receive the current date from the server every 10 seconds.
@@ -87,7 +87,7 @@ def test_date(date):
    
   #verify if the diff is 10 seconds
   diff = cal_date_diff(date_1, date_2)
-  expected_dif = "0:00:10"    #0 days, 0 hours and 10 seconds        
+  expected_dif ="0:00:10"    #0 days, 0 hours and 10 seconds        
   date.assertEqual(diff, expected_dif)   
 
 # calculate the diff beween two dates
