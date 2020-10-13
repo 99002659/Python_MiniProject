@@ -86,8 +86,8 @@ def cal_date_diff(date_1, date_2):
 #[6] Requirement: The client should send a text message to the server, the server should respond with the same string but reversed
 def test_input(input):
 
-  input_list = ['roma', 'genova']
-  expected_list = ['amor', 'avoneg']
+  input_list = ['aditya','prateeksha', 'prerana']
+  expected_list = ['aytida', 'ahskeetarp','anarerp']
 
   clients.send(string_output = input_list)
   output_list = []
