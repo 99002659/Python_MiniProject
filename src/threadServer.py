@@ -1,10 +1,7 @@
-
 from socket import socket, AF_INET, SOCK_STREAM
 from ssl import SSLContext, PROTOCOL_TLS_SERVER
-
 import threading, time
 from datetime import datetime
-
 
 class ServerThread():
 
@@ -44,8 +41,7 @@ class ServerThread():
     
       reversed =  "{} {}".format("Reversed input :" , input[::-1]) 
       return reversed
-      
-    
+     
     #receive message, manage connections, send messages
     def process_input(self):
 
@@ -58,7 +54,6 @@ class ServerThread():
             if msg=='q':        
             
               global connected_clients
-              
               #protect with semaphores
               with lock:
                 connected_clients -=1
