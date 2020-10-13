@@ -15,8 +15,7 @@ class ServerThread():
         dt_string = now.strftime("%d/%m/%Y %H:%M:%S")        
         result = "{} {}".format("Date sent From Server :" , dt_string) 
         return result                                                                 # The server should send the current date to each client every 10 seconds  
-    def send_date(self):
-    
+    def send_date(self):   
       while True:    
         if self.break_loop:
           break         
@@ -26,8 +25,7 @@ class ServerThread():
   
     def reverse_input(self, input):    
       reversed =  "{} {}".format("Reversed input :" , input[::-1]) 
-      return reversed     
-                                                                                     #receive message, manage connections, send messages
+      return reversed                                                                                         #receive message, manage connections, send messages
     def process_input(self):
         msg = ''
         while True:
@@ -67,8 +65,7 @@ def connect_clients():
         print(conn_output)        
     else:
         conn_output = "can't connect, max number of clients reached"    
-    return conn_output
-            
+    return conn_output            
 #global variables
 LOCALHOST = "127.0.0.1"
 PORT = 3443
@@ -90,11 +87,6 @@ print("Server started")
 print("Waiting for client request")
 lock = threading.Lock()
 if __name__ == "__main__":
-
     conn_params()  
     while True:
         connect_clients()
-
-
-
-    
