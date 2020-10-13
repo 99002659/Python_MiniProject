@@ -9,7 +9,7 @@ class ServerThread():
         self.break_loop = False
         self.clientAddress = clientAddress       
         print("New connection added:", self.clientAddress)
-           def get_current_date(self):                                                # datetime object containing current date and time
+    def get_current_date(self):                                                # datetime object containing current date and time
         now = datetime.now()        
         # dd/mm/YY H:M:S
         dt_string = now.strftime("%d/%m/%Y %H:%M:%S")        
