@@ -1,22 +1,18 @@
-
 import unittest, threading, time
 from platform import python_version
-
 import threadServer as server
 import threadClient as clients
 from datetime import datetime
 
-
 class TestSum(unittest.TestCase): 
-  
-    #[1] Requirement:  python > 3.5.x
+  #[1] Requirement:  python > 3.5.x
     def test_version(self): 
   
         current_version = float(python_version()[:3])        
         min_version = 3.5       
         check = False
         
-        if (current_version >= min_version):
+        if(current_version >= min_version):
             check = True
             
         self.assertEqual(True, check,  f'your Python version is = {current_version} while the min requirement is = {min_version} ') 
@@ -32,17 +28,14 @@ class TestSum(unittest.TestCase):
           
             
     def test_send_receive(self):
-    
       #[3] Requirement: The server should accept a maximum of 100 connected clients
       with self.subTest():
         test_max_clients(self)           
-    
-      #put the server ready to receive connections from clients
+   #put the server ready to receive connections from clients
       t1 = threading.Thread(target = server.connect_clients)
       t1.start()
       time.sleep(0.2)
-      
-      #client send a connection request to server
+     #client send a connection request to server
       clients.connect_server()      
       
       #[4] Requirement: The client should connect to the server with a TLS connection
@@ -76,8 +69,7 @@ def test_max_clients(max_clients):
 def test_tls(tls):
   tls_version = clients.client.version()
   expected_tls= "TLSv1.3"        
-  tls.assertEqual(tls_version,expected_tls)  
- 
+  tls.assertEqual(tls_version,expected_tls)   
  
  #[5] Requirement: The client should receive the current date from the server every 10 seconds.
 def test_date(date):
@@ -103,8 +95,7 @@ def cal_date_diff(date_1, date_2):
   date_2 = datetime.strptime(date_2, "%d/%m/%Y %H:%M:%S")
 
   result = str(date_2 - date_1)
-  return result
-  
+  return result  
   
 #[6] Requirement: The client should send a text message to the server, the server should respond with the same string but reversed
 def test_input(input):
@@ -123,8 +114,6 @@ def test_input(input):
       output_list.append(out)
 
   input.assertEqual(output_list, expected_list)
-
  
 if __name__ == "__main__":
-
-  unittest.main() 
+ unittest.main() 
