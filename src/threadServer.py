@@ -39,8 +39,8 @@ class ServerThread():
 
     def reverse_input(self, input):
     
-      reversed =  "{} {}".format("Reversed input :" , input[::-1]) 
-      return reversed
+      reversed input =  "{} {}".format("Reversed input :" , input[::-1]) 
+      return reversed input
      
     #receive message, manage connections, send messages
     def process_input(self):
