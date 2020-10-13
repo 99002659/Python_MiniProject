@@ -2,12 +2,12 @@ import  threading, os
 from socket import create_connection
 from ssl import SSLContext, PROTOCOL_TLS_CLIENT
 client = None 
-def connect_server():                                                              #connect to server 
+def connect_server():                                                             
   global client  
   HOSTNAME ='example.org'
   SERVER = "127.0.0.1"
   PORT = 3443
-  context = SSLContext(PROTOCOL_TLS_CLIENT)                                          # PROTOCOL_TLS_CLIENT requires valid cert chain and hostname
+  context = SSLContext(PROTOCOL_TLS_CLIENT)                                          
   context.load_verify_locations('certificates/cert.pem')
   tls = create_connection((SERVER, PORT))  
   client =  context.wrap_socket(tls, server_hostname=HOSTNAME) 
