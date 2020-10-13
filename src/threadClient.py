@@ -6,8 +6,7 @@ client = None
 #connect to server 
 def connect_server():
 
-  global client
-  
+  global client  
   HOSTNAME ='example.org'
   SERVER = "127.0.0.1"
   PORT = 3443
@@ -16,9 +15,8 @@ def connect_server():
   context = SSLContext(PROTOCOL_TLS_CLIENT)
   context.load_verify_locations('certificates/cert.pem')
   tls = create_connection((SERVER, PORT))  
-  client =  context.wrap_socket(tls, server_hostname=HOSTNAME)  
-
-  print("insert the  input  then press ENTER...")
+  client =  context.wrap_socket(tls, server_hostname=HOSTNAME) 
+  print("insert the  input  then press ENTER")
   print("press q + ENTER so exit")
   print()
 
@@ -27,12 +25,11 @@ def send(string_output=None):
 
   while True: 
     if(string_output == None): #input from keyboard
-      out_data = input()    
-      client.sendall(bytes(out_data,'UTF-8'))    
-      
+      out_data = input()
+      client.sendall(bytes(out_data,'UTF-8'))   
     else:
       for out_data in string_output: #input from code
-        client.sendall(bytes(out_data,'UTF-8'))           
+        client.sendall(bytes(out_data,'UTF-8'))      
       break
     
     #if q end connection
