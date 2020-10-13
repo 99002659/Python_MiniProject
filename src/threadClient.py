@@ -9,7 +9,6 @@ def connect_server():
   HOSTNAME ='example.org'
   SERVER = "127.0.0.1"
   PORT = 3443
-
   # PROTOCOL_TLS_CLIENT requires valid cert chain and hostname
   context = SSLContext(PROTOCOL_TLS_CLIENT)
   context.load_verify_locations('certificates/cert.pem')
@@ -18,7 +17,6 @@ def connect_server():
   print("insert the  input  then press ENTER")
   print("press q + ENTER so exit")
   print()
-
 #send data to server
 def send(string_output=None):  
   while True: 
@@ -44,12 +42,10 @@ def run_client():
 
   #do the sending on a different thread
   t1 = threading.Thread(target=send)
-  t1.start()
-  
+  t1.start() 
   #in the main thread do the receiving
   while True:
-    receive()
- 
+    receive() 
 if __name__ == "__main__":
   connect_server()
   run_client()
