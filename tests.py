@@ -14,7 +14,7 @@ class TestSum(unittest.TestCase):                          #[1] Requirement:  py
     def test_port(self):                                     #[2] Requirement:  The server should listen on port 3443
       port = server.conn_params()
       port = int( port.split()[-1])      
-      req_port = 3443      
+      req_port = 3443                                      #This issue was resolved
       self.assertEqual(port, req_port,  f'port is = {port} while the required port is = {req_port} ')                       
     def test_send_receive(self):
 #[3] Requirement: The server should accept a maximum of 100 connected clients
