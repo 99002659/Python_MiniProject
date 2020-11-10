@@ -25,7 +25,7 @@ class ServerThread():
   
     def reverse_input(self, input):    
       reversed =  "{} {}".format("Reversed input :" , input[::-1]) 
-      return reversed                                                                                         #receive message, manage connections, send messages
+      return reversed                                                                                         #receive message, then manage connections, send messages
     def process_input(self):
         msg = ''
         while True:
