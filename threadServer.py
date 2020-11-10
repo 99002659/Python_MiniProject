@@ -71,7 +71,7 @@ LOCALHOST = "127.0.0.1"
 PORT = 3443
 MAX_CLIENTS = 100
 connected_clients = 0
-# PROTOCOL_TLS_CLIENT requires valid cert chain and hostname
+# PROTOCOL_TLS_CLIENT requires valid certificate chain and hostname
 # SSLContext helps manage settings and certificates which can be inherited by SSL sockets created through SSLContext.wrap_socket()
 context = SSLContext(PROTOCOL_TLS_SERVER)
 context.load_cert_chain('certificates/cert.pem', 'certificates/key.pem')
