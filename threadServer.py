@@ -31,7 +31,7 @@ class ServerThread():
         while True:
             data = self.csocket.recv(2048)            
             msg = data.decode()           
-           #if q, close connection from client, adjust number of connected clients, stop sending date every 10s to this client
+           #if q, close connection from client, adjust number of connected clients
             if msg=='q':                  
               global connected_clients
               #protect with semaphores
