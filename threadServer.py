@@ -58,7 +58,7 @@ def connect_clients():
         t1 = threading.Thread(target = newthread.send_date)
         t2 = threading.Thread(target = newthread.process_input)       
         t1.start()
-        t2.start()                                                                                               #protect with semaphores
+        t2.start()                                                                                               #protecting with semaphores
         with lock:
             connected_clients += 1
         conn_output = "{} {}".format("Number of clients connected : ", connected_clients) 
