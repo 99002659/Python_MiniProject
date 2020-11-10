@@ -9,12 +9,12 @@ class ServerThread():
         self.break_loop = False
         self.clientAddress = clientAddress       
         print("New connection added:", self.clientAddress)
-    def get_current_date(self):                                                # datetime object containing current date and time
+    def get_current_date(self):                                                # datetime object contains current date and time
         now = datetime.now()        
         # dd/mm/YY H:M:S
         dt_string = now.strftime("%d/%m/%Y %H:%M:%S")        
         result = "{} {}".format("Date sent From Server :" , dt_string) 
-        return result                                                                 # The server should send the current date to each client every 10 seconds  
+        return result                                                                 # The server should send the current date to all the client every 10 seconds  
     def send_date(self):   
       while True:    
         if self.break_loop:
