@@ -13,7 +13,7 @@ def connect_server():
   client =  context.wrap_socket(tls, server_hostname=HOSTNAME) 
   print("insert the  input  then press ENTER")
   print("press q + ENTER so exit")
-  print()                                                                              #send data to server
+  print()                                                                              #sending the data to server
 def send(string_output=None):  
   while True: 
     if(string_output == None): #input from keyboard
@@ -22,17 +22,17 @@ def send(string_output=None):
     else:
       for out_data in string_output: #input from code
         client.sendall(bytes(out_data,'UTF-8'))      
-      break                                                                            #if q end connection
+      break                                                                            #when q end connection
     if out_data=='q':
         client.close()
-        os._exit(0)                                                                    #receive data from server
+        os._exit(0)                                                                    #receives data from server
 def receive():
     in_data =  client.recv(1024)
     print(in_data.decode())
     return in_data.decode()       
-def run_client():                                                                      #do the sending on a different thread
+def run_client():                                                                      #does the sending on the different thread
   t1 = threading.Thread(target=send)
-  t1.start()                                                                                        #in the main thread do the receiving
+  t1.start()                                                                                        #in the main thread it does the receiving
   while True:
     receive() 
 if __name__ == "__main__":
